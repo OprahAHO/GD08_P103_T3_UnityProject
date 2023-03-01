@@ -9,15 +9,13 @@ public class InteractorComponent : MonoBehaviour
     // Start is called before the first frame update
     private float interactMultiplier;
     private PlayerActions playerActions;
-
     [SerializeField]
     private float movementSpeed = 5;
     [SerializeField]
     private float playerWidth;
     [SerializeField]
     private float playerHeight;
-    [SerializeField] 
-    Transform pos;
+    [SerializeField] Transform pos;
     private float interactDistance => interactMultiplier* Time.deltaTime;
     private void Awake()
     {
@@ -28,21 +26,13 @@ public class InteractorComponent : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-
+        
         if (playerActions.PlayerInput.InteractPrimary.WasPressedThisFrame())
         {
             Debug.Log("E");
 
             TryInteract();
         }
-        /*if (playerActions.PlayerInput.InteractPrimary.WasPressedThisFrame())
-        {
-            var enemies = FindObjectOfType<IngredientComponent>();
-            var enemyIndex = Random.Range(0, enemies.Count);
-
-            enemies[enemyIndex].Configuration.HP -= 10;
-            Debug.Log(enemies[enemyIndex].transfor.name);
-        }*/
     }
     private void TryInteract()
     {

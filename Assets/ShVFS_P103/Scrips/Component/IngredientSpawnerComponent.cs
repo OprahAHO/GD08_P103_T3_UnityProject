@@ -4,24 +4,14 @@ using UnityEngine;
 
 public class IngredientSpawnerComponent : InteractableComponentBase
 {
-    [SerializeField] 
-    FoodComponent spawnFood;
-    private FoodComponent ownFood;
+    [SerializeField] FoodComponent spawnFood;
     public override void Interact(FoodComponent food,Transform pos)
     {
-        var ingredient = Instantiate(spawnFood);
         Debug.Log("Spawn the food");
-        if (ownFood == null)
-        {
-            ownFood = Instantiate(spawnFood, structurePos);
-        }
-
-        else
-        {
-            //Give food to pos
-            ownFood.gameObject.transform.SetParent(pos, false);
-        }
-
+        var cloneFood=Instantiate(spawnFood,structurePos);
+        //Give food to pos
+        cloneFood.gameObject.transform.SetParent(pos,false);
+        
     }
 }
 
