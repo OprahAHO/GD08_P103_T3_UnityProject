@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IngredientDestroyerComponent : MonoBehaviour
+public class IngredientDestroyerComponent : InteractableComponentBase
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Interact(FoodComponent food, Transform pos)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (!food) return;
+        Debug.Log("Destroy the food");
+        Destroy(food.gameObject);
     }
 }

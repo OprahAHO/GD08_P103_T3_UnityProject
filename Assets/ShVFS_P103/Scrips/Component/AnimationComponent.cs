@@ -19,6 +19,8 @@ public class AnimationComponent : MonoBehaviour
         if(inputComponent.GetInputDirectionNormalized().magnitude > 0f)
         {
             animator.Play("Walk");
+
+
         }
         else
         {
